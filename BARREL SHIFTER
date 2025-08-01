@@ -1,0 +1,57 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date:    19:18:25 07/31/2025 
+-- Design Name: 
+-- Module Name:    barrel_shifter_st - Structural 
+-- Project Name: 
+-- Target Devices: 
+-- Tool versions: 
+-- Description: 
+--
+-- Dependencies: 
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
+--
+----------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity barrel_shifter_st is
+    Port ( s : in  STD_LOGIC_VECTOR (2 downto 0);
+           d : in  STD_LOGIC_VECTOR (7 downto 0);
+           y : out  STD_LOGIC_VECTOR (7 downto 0));
+end barrel_shifter_st;
+
+architecture Structural of barrel_shifter_st is
+component mux_8_1_st is
+    Port ( s : in  STD_LOGIC_VECTOR (2 downto 0);
+           d7,d6,d5,d4,d3,d2,d1,d0 : in  STD_LOGIC;
+           y : out  STD_LOGIC);
+end component;
+begin
+M1 : mux_8_1_st port map(s,d(0),d(1),d(2),d(3),d(4),d(5),d(6),d(7),y(0));
+M2 : mux_8_1_st port map(s,d(1),d(2),d(3),d(4),d(5),d(6),d(7),d(0),y(1));
+M3 : mux_8_1_st port map(s,d(2),d(3),d(4),d(5),d(6),d(7),d(0),d(1),y(2));
+M4 : mux_8_1_st port map(s,d(3),d(4),d(5),d(6),d(7),d(0),d(1),d(2),y(3));
+M5 : mux_8_1_st port map(s,d(5),d(5),d(6),d(7),d(0),d(1),d(2),d(3),y(4));
+M6 : mux_8_1_st port map(s,d(5),d(6),d(7),d(0),d(1),d(2),d(3),d(4),y(5));
+M7 : mux_8_1_st port map(s,d(6),d(7),d(0),d(1),d(2),d(3),d(4),d(5),y(6));
+M8 : mux_8_1_st port map(s,d(7),d(0),d(1),d(2),d(3),d(4),d(5),d(6),y(7));
+
+
+
+end Structural;
+
