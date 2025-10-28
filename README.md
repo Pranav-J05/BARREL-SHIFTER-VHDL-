@@ -75,18 +75,8 @@ This demonstrates all 8 rotation configurations for the barrel shifter.
 | `110`     | `11000001` |
 | `111`     | `10000011` |
 
-*(Actual output depends on multiplexer implementation and rotation direction)*
 
----
 
-## 🧑‍💻 Author
-
-Designed by **[Your Name Here]**  
-If you use or modify this project, credit is appreciated.
-
----
-
-## 📄 License
 
 This project is open-source and free to use for academic or personal use.  
 Consider including an appropriate license if reused in larger works.
